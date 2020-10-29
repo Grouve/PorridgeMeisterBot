@@ -1,3 +1,4 @@
+import time
 import requests
 from bs4 import BeautifulSoup
 
@@ -11,6 +12,7 @@ HEADERS = {
 def get_html(url, params=None):
     r = requests.get(url, headers=HEADERS, params=params)
     return r
+
 
 def get_content(html):
     soup = BeautifulSoup(html, 'html.parser')

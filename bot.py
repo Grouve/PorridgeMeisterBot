@@ -1,8 +1,8 @@
+import telebot
 import irkcovid
 import irkweather
-import telebot
 
-bot = telebot.TeleBot(TOKEN)
+bot = telebot.TeleBot('1064360772:AAEnn-3m0TOipWenTUU0K-hKmaGpek2kINI')
 
 
 @bot.message_handler(commands=['start'])
@@ -20,6 +20,7 @@ def help(message):
 
 @bot.message_handler(commands=['covid'])
 def covid(message):
+    irkcovid.start_parse()
     covid_message = str(
         irkcovid.date_news + '\n'+"Актуальные новости по коронавирусу:" + '\n'
         + irkcovid.title_news + '\n' + irkcovid.content_news + '\n'
@@ -29,6 +30,7 @@ def covid(message):
 
 @bot.message_handler(commands=['weather'])
 def weather(message):
+    irkweather.start_parse()
     weather_message = str("Актульная погода:\n"+"Температура: "+irkweather.temperature+'\n'+irkweather.wind+'\n' \
                                                                                                          ''+irkweather\
         .humidity)
