@@ -1,8 +1,10 @@
 import telebot
+import os
 import irkcovid
 import irkweather
 
-bot = telebot.TeleBot('1064360772:AAEnn-3m0TOipWenTUU0K-hKmaGpek2kINI')
+token = os.getenv("TOKEN")
+bot = telebot.TeleBot(token)
 
 
 @bot.message_handler(commands=['start'])
